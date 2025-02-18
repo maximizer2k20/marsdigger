@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 import time
 import threading
+from playsound import playsound
 
 class MarsDiggingGUI:
     def __init__(self, root):
@@ -11,7 +12,7 @@ class MarsDiggingGUI:
 
         # Digging Robot Attributes
         self.depth_dug = 0  # Depth in cm
-        self.max_depth = 50  # Target depth
+        self.max_depth = 100  # Set target depth to 100 cm (1 meter)
         self.energy_level = 100  # Energy level in percentage
         self.digging = False  # Digging state
 
@@ -51,6 +52,11 @@ class MarsDiggingGUI:
 
         if self.depth_dug >= self.max_depth:
             self.depth_label.config(text="Digging Complete!")
+            self.play_sound()  # Play sound on completion
+
+    def play_sound(self):
+        """Plays a sound when digging reaches max depth."""
+        playsound("alert.mp3")  # Ensure alert.mp3 is in the same directory
 
     def start_digging(self):
         """Starts the digging process in a separate thread."""
