@@ -2,7 +2,7 @@ import time
 
 class MarsDiggingRobot:
     def __init__(self, name, max_depth):
-        self.name = name  # Robot's name
+        self.name = KujaDig  # Robot's name
         self.depth_dug = 0  # Current depth dug (in cm)
         self.max_depth = max_depth  # Maximum depth to dig (in cm)
         self.energy_level = 100  # Energy level in percentage
